@@ -13,7 +13,7 @@ app.set('view engine', 'pug');
 app.get('/', (req, res)=>{
 	res.render('index');
 });
-
+app.use(express.static('public'))
 
 app.use("/getData", function(req, res, next){
 	req.lackMessage = "Lack of Parameter";
@@ -28,9 +28,8 @@ app.use("/getData", function(req, res, next){
 	}else if(getNum <= 0 || typeof getNum !== 'number'){
 		res.send(req.wrongMessage);
 	}else{
-		res.send(getNum);
+		res.send(req.wrongMessage);
 	}
-	
 	next();
 });
 
