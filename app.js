@@ -1,16 +1,21 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
 
-app.get('/', (req, res) => res.send('Hello, My Server'))
+// var routes = require("./routes")
+// var jasonParser = require("body-parser").json;
+// app.use(jasonParser());
+// app.use("/getData",routes)
+
+app.set('view engine', 'pug');
+app.get('/', (req, res)=>{
+	res.render('index');
+});
+
+app.use("/getData", function(req, res, next){
+	res.send("Lack of Parameter");
+	next();
+});
 
 
-//Build Simple RESTful API 
-app.get('/getData', function (req, res) {
-  res.send('Lack of Parameter')
-})
-app.get('/getData?number=xyz​', function (req, res) {
-  res.send('Wrong Parameter')
-})
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(3000);
