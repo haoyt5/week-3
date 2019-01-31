@@ -4,9 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Give Me A Positive Integer</title>
 	<link rel="stylesheet" href="stylesheets/style.css">
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<!-- <script src="sumton.js"></script> -->
 </head>
 <body>
     <header>
@@ -23,18 +21,10 @@
             <input id="input_number" class="namecard-name" type="text" name="number">
             <button class="number-submit" >Submit</div>
         </div>
-
-        <!--             <h2 class="u-input">Lack Of Parameter</h2>
-			<h2 class="u-input">Wrong Parameter</h2> -->
     </section>
 	<script>
-
-		var getresponse_html="<h2 class='u-input'> {responseMsg}</2>";
-		//GET/READ
 		$('button').click(function(){
-			// (1) 取得input的值
 			const inputVal = $('#input_number').val();
-
 			$.ajax({
 				url: "/getData?number=" + inputVal,
 				contentType: "text/html",
@@ -42,9 +32,7 @@
 				function enter(){
 					var msgSquare = $('#sum_result');
 					msgSquare.text(response);
-					// msgSquare.innerHTML = response;
-					// var printresponce_html = getresponse_html.replace("{responseMsg}",response)
-					// 	msgSquare.append(printresponce_html);
+
 					}
 				enter();
 					
@@ -52,7 +40,10 @@
 			});
 		});
 
-
+//		var getresponse_html= "<h2 class='u-input'> {responseMsg}</2>" ;
+// msgSquare.innerHTML = response;
+// var printresponce_html = getresponse_html.replace("{responseMsg}",response)
+// 	msgSquare.append(printresponce_html);
 
 
 // //AJAX START
@@ -88,8 +79,6 @@
 // 		};
 // 		xhr.open('GET', 'status.html');
 // 		xhr.send();
-
-
 	</script>
 </body>
 
