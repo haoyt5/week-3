@@ -13,39 +13,45 @@
     	<h1 class="header h1">Sum the Integers from 1 to N</h1>
     </header>
     <section class="namecard">
-         <div id="sum_result">
-            <h2 class="u-input">The parameter is N. The sum from 1 to N is ?</h2>
+         <div id="sum_sub">
+            <h2 id="sum_result" class="u-input">The parameter is N. The sum from 1 to N is ?</h2>
         </div>
-        <form action="" method="get" class="namecard-form">
+        <div class="namecard-form">
             <label class="namecard-prompt">
                 Enter A Positive Integer:
             </label>
             <input id="input_number" class="namecard-name" type="text" name="number">
-            <button class="number-submit"  >Submit</div>
-        </form>
+            <button class="number-submit" >Submit</div>
+        </div>
 
         <!--             <h2 class="u-input">Lack Of Parameter</h2>
 			<h2 class="u-input">Wrong Parameter</h2> -->
     </section>
 	<script>
+
 		var getresponse_html="<h2 class='u-input'> {responseMsg}</2>";
 		//GET/READ
 		$('button').click(function(){
+			// (1) 取得input的值
+			const inputVal = $('#input_number').val();
+
 			$.ajax({
-				url: "/getData",
+				url: "/getData?number=" + inputVal,
 				contentType: "text/html",
 				success: function(response){
 				function enter(){
 					var msgSquare = $('#sum_result');
-					msgSquare.html('');
-					var printresponce_html = getresponse_html.replace("{responseMsg}",response)
-						msgSquare.append(printresponce_html);
+					msgSquare.text(response);
+					// msgSquare.innerHTML = response;
+					// var printresponce_html = getresponse_html.replace("{responseMsg}",response)
+					// 	msgSquare.append(printresponce_html);
 					}
 				enter();
 					
 				}
 			});
 		});
+
 
 
 
