@@ -55,7 +55,8 @@ input {
   display: inline-block;
 }
 .u-input{
-  margin:0.6em;
+  padding-top: 1em;
+  margin:0.4em;
   font-weight: 550;
 }
 /* Buttons */
@@ -123,7 +124,7 @@ input {
   margin: 20px auto;
 }
 
-.namecard-submit {
+.number-submit {
   margin-top: 50px;
   background-color: #fff;
   border: 2px #D64226 solid;
@@ -136,7 +137,7 @@ input {
   box-sizing: border-box;
 }
 
-.namecard-submit:hover {
+.number-submit:hover {
   background-color: #D64226;
   color: #fff;
   cursor: pointer;

@@ -13,7 +13,7 @@ app.set('view engine', 'pug');
 app.get('/', (req, res)=>{
 	res.render('index');
 });
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.use("/getData", function(req, res, next){
 	req.lackMessage = "Lack of Parameter";
