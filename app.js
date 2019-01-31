@@ -1,16 +1,6 @@
 const express = require('express');
 const app = express();
 
-// var routes = require("./routes")
-
-// var jasonParser = require("body-parser").json;
-// var logger = require("morgan");
-// app.use(jasonParser());
-// app.use(logger("dev"));
-// app.use("/getData",routes)
-
-
-
 app.set('view engine', 'pug');
 app.get('/', (req, res)=>{
 	res.render('index');
