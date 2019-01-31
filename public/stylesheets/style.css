@@ -25,7 +25,8 @@ body {
 }
 
 h1 {
-  margin: 0;
+  margin: 1em;
+  font-size: 36px;
 }
 
 h2 {
@@ -35,7 +36,6 @@ h2 {
 a {
   text-decoration: none;
 }
-
 button {
   outline: none;
 }
@@ -57,7 +57,8 @@ input {
 .u-input{
   padding-top: 1em;
   margin:0.4em;
-  font-weight: 550;
+  font-weight: 500;
+  font-size: 26px;
 }
 /* Buttons */
 .button-primary-small {
@@ -85,7 +86,7 @@ input {
 
 .namecard {
   background-color: #F5F3ED;
-  max-width: 400px;
+  max-width: 800px;
   margin: auto;
   color: #727C85;
   text-align: center;
@@ -113,10 +114,10 @@ input {
 }
 
 .namecard-prompt {
-  font-size: 26px;
+  font-size: 18px;
   font-weight: 400;
   display: block;
-  padding-top: 45px;
+  padding-top: 30px;
 }
 
 .namecard-name {

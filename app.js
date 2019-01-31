@@ -9,6 +9,8 @@ const app = express();
 // app.use(logger("dev"));
 // app.use("/getData",routes)
 
+
+
 app.set('view engine', 'pug');
 app.get('/', (req, res)=>{
 	res.render('index');
