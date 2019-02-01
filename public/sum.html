@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Give Me A Positive Integer</title>
 	<link rel="stylesheet" href="stylesheets/style.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!-- 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
 </head>
 <body>
     <header>
@@ -19,26 +19,55 @@
                 Enter A Positive Integer:
             </label>
             <input id="input_number" class="namecard-name" type="text" name="number">
-            <button class="number-submit" >Submit</div>
+            <button class="number-submit" onclick ="submitFucntion()">Submit</div>
         </div>
     </section>
 	<script>
-		$('button').click(function(){
-			const inputVal = $('#input_number').val();
-			$.ajax({
-				url: "/getData?number=" + inputVal,
-				contentType: "text/html",
-				success: function(response){
-				function enter(){
-					var msgSquare = $('#sum_result');
-					msgSquare.text(response);
+		function submitFucntion(){
+			const inputVal = document.getElementById('input_number').value; 
+			const xhr = new XMLHttpRequest();
+			xhr.open( 'GET','/getData?number=' + inputVal);
+			xhr.setRequestHeader('Content-Type', 'text/html');
+			xhr.onload = function(){
+			if (xhr.status === 200) {
+		    	document.getElementById('sum_result').innerHTML = xhr.responseText;
+		    } else {
+		        alert('Request failed.  Returned status of ' + xhr.status);
+		    }
+		    };     
+		     xhr.send();
+		}
+			// $('button').click(function(){
+			// 	const inputVal = $('#input_number').val();
+			// 		var xhr = new XMLHttpRequest();
+		 //            xhr.open('GET', '/getData?number='+ inputVal);
+		 //            xhr.setRequestHeader('Content-Type', 'text/html');
+		 //            xhr.onload = function() {
+		 //            if (xhr.status === 200) {
+		 //            document.getElementById('sum_result').innerHTML = xhr.responseText
+		 //            } else {
+		 //               alert('Request failed.  Returned status of ' + xhr.status);
+		 //            }
+		 //            };
+		 //            xhr.send();
 
-					}
-				enter();
-					
-				}
-			});
-		});
+		 //    });
+
+
+		  //   $('button').click(function(){
+				// 		$.ajax({
+				// 	url: "/getData?number=" + inputVal,
+				// 	contentType: "text/html",
+				// 	success: function(response){
+				// 	function enter(){
+				// 		var msgSquare = $('#sum_result');
+				// 		msgSquare.text(response);
+				// 		}
+				// 	enter();
+						
+				// 	}
+				// });
+		  //   });
 
 //		var getresponse_html= "<h2 class='u-input'> {responseMsg}</2>" ;
 // msgSquare.innerHTML = response;
